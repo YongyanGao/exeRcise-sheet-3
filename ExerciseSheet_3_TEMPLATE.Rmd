@@ -87,16 +87,52 @@ b)  Load the data for both years into R. Check the type of the count
     not numeric? Fix the problem in an appropriate manner, it is OK if
     some of the counts are inaccurate because of this. Explain your
     solution and the repercussions.
+    
 ```{r}
 vorname_2021 <- read.csv("C:/Users/Yongyan/Documents/R/data/FortR23/vornamen_2021.csv")
 vorname_2022 <- read.csv("C:/Users/Yongyan/Documents/R/data/FortR23/open_data_portal_2022.csv")
+
+typeof(vorname_2021$Anzahl)
+typeof(vorname_2022$Anzahl)
+
+head(vorname_2021)
+head(vorname_2022)
+
+vorname_2021$Anzahl <- as.numeric(vorname_2021$Anzahl)
+vorname_2022$Anzahl <- as.numeric(vorname_2022$Anzahl)
+
+typeof(vorname_2021$Anzahl)
+typeof(vorname_2022$Anzahl)
+
 ```
+ 
+Fixing the problem with the "Anzahl" variable may result in some counts being inaccurate if there were non-numeric values or formatting issues in the original data. 
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2021. Which year had the bigger baby-boom?
+```{r}
+vorname_2021 <- na.omit(vorname_2021)
+vorname_2022 <- na.omit(vorname_2022)
+
+total_2021 <- sum(vorname_2021$Anzahl)
+total_2022 <- sum(vorname_2022$Anzahl)
+
+total_2021
+total_2022
+```
+2021 had the bigger baby-boom. 
 
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
+```{r}
+library(dplyr)
+
+vorname_2021 <- mutate(vorname_2021, year = 2021)
+vorname_2022 <- mutate(vorname_2022, year = 2022)
+
+head(vorname_2021)
+head(vorname_2022)
+```
 
 e)  Combine both datasets into one using `bind_rows()`.
 
