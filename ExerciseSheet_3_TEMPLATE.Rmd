@@ -119,6 +119,7 @@ Fixing the problem with the "Anzahl" variable may result in some counts being in
 c)  Calculate the total number of babies born in Munich in 2022
     and 2021. Which year had the bigger baby-boom?
 ```{r}
+
 vorname_2021 <- na.omit(vorname_2021)
 vorname_2022 <- na.omit(vorname_2022)
 
@@ -127,6 +128,7 @@ total_2022 <- sum(vorname_2022$Anzahl)
 
 total_2021
 total_2022
+
 ```
 2021 had the bigger baby-boom. 
 
