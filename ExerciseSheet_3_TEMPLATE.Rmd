@@ -198,6 +198,7 @@ column_means \<- lapply(tax_data\[, -1\], 2, mean)
 column_means
 
 ```{r}
+
 tax_data <- data.frame(
   Name = c("Munich GmbH", "ABC Inc.", "Backpacks 1980", "Bavarian Circus"),
   Tax_2019 = c(5000, 4000, 6000, 3500),
@@ -206,23 +207,44 @@ tax_data <- data.frame(
 )
 
 # Calculate column-wise means
+
 column_means <- sapply(tax_data[, -1], mean)
 
 column_means
 
 # Calculate row-wise means
+
 row_means <- rowMeans(tax_data[, -1])
 
 row_means
 ```
+prompts: 
+
+[The code below does not work because the wrong apply function has
+    been used. Find out which apply function would be correct and why it
+    did not work. Correct the code. Also calculate the rowwise means.
+
+###Create a sample data frame
+
+tax_data \<- data.frame( Name = c("Munich GmbH", "ABC Inc.", "Backpacks
+1980", "Bavarian Circus"), Tax_2019 = c(5000, 4000, 6000, 3500),
+Tax_2020 = c(4800, 4200, 5800, 3700), Tax_2021 = c(5200, 3800, 5900,
+3400) )
+
+###Calculate column-wise means
+
+column_means \<- lapply(tax_data\[, -1\], 2, mean)
+
+column_means]
+
 
 b)  Using ChatGPT try to understand what the rapply() function does.
     Create an easy example with mock data where the function is used and
     explain it in your words. 
     
-The rapply() function in R is used to recursively apply a function to elements of a list or nested list structure. It traverses through the given list and applies a specified function to each element, including elements within nested lists. 
 
 ```{r}
+
 # Create a nested list structure
 data <- list(
   a = 1,
@@ -236,6 +258,7 @@ data <- list(
 )
 
 # Define a function to add 10 to numeric values
+
 add_10 <- function(x) {
   if (is.numeric(x)) {
     x + 10
@@ -245,17 +268,14 @@ add_10 <- function(x) {
 }
 
 # Apply the add_10 function recursively using rapply
+
 modified_data <- rapply(data, add_10)
 
 modified_data
 ```
-In this example, we have a nested list structure called data. It contains numeric values (1, 2, 3, 4) at different levels within the structure. We want to add 10 to all the numeric values in the structure while keeping the non-numeric values unchanged.
+The rapply() function in R is used to apply a function to each element of a list or nested list. It works recursively, meaning it applies the function to all elements, including those within nested lists. In the example, chatgpt created a nested list called data with numeric values. We want to add 10 to all the numeric values while keeping the non-numeric values unchanged. To achieve this, we need to define the add_10 function, which adds 10 to numeric values. Then, chatgpt use rapply() to apply add_10 recursively to the data structure. The result is a modified list, modified_data, with the numeric values increased by 10.
 
-We define the add_10 function, which checks if the input x is numeric. If it is, the function adds 10 to it; otherwise, it returns x as it is.
-
-We then apply the add_10 function recursively to the data structure using rapply(). The function traverses through the list structure and applies the add_10 function to each numeric value it encounters. The resulting modified list structure, modified_data, is returned with the numeric values incremented by 10.
-
-In the example, modified_data will be a nested list with the same structure as data, but with all the numeric values increased by 10.
+prompts: [ Using ChatGPT try to understand what the rapply() function does.Create an easy example with mock data where the function is used ]
 
 ## Final Note
 
