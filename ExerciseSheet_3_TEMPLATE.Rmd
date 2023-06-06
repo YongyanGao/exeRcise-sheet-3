@@ -188,9 +188,65 @@ column_means \<- lapply(tax_data\[, -1\], 2, mean)
 
 column_means
 
+```{r}
+tax_data <- data.frame(
+  Name = c("Munich GmbH", "ABC Inc.", "Backpacks 1980", "Bavarian Circus"),
+  Tax_2019 = c(5000, 4000, 6000, 3500),
+  Tax_2020 = c(4800, 4200, 5800, 3700),
+  Tax_2021 = c(5200, 3800, 5900, 3400)
+)
+
+# Calculate column-wise means
+column_means <- sapply(tax_data[, -1], mean)
+
+column_means
+
+# Calculate row-wise means
+row_means <- rowMeans(tax_data[, -1])
+
+row_means
+```
+
 b)  Using ChatGPT try to understand what the rapply() function does.
     Create an easy example with mock data where the function is used and
-    explain it in your words.
+    explain it in your words. 
+    
+The rapply() function in R is used to recursively apply a function to elements of a list or nested list structure. It traverses through the given list and applies a specified function to each element, including elements within nested lists. 
+
+```{r}
+# Create a nested list structure
+data <- list(
+  a = 1,
+  b = list(
+    c = 2,
+    d = list(
+      e = 3,
+      f = 4
+    )
+  )
+)
+
+# Define a function to add 10 to numeric values
+add_10 <- function(x) {
+  if (is.numeric(x)) {
+    x + 10
+  } else {
+    x
+  }
+}
+
+# Apply the add_10 function recursively using rapply
+modified_data <- rapply(data, add_10)
+
+modified_data
+```
+In this example, we have a nested list structure called data. It contains numeric values (1, 2, 3, 4) at different levels within the structure. We want to add 10 to all the numeric values in the structure while keeping the non-numeric values unchanged.
+
+We define the add_10 function, which checks if the input x is numeric. If it is, the function adds 10 to it; otherwise, it returns x as it is.
+
+We then apply the add_10 function recursively to the data structure using rapply(). The function traverses through the list structure and applies the add_10 function to each numeric value it encounters. The resulting modified list structure, modified_data, is returned with the numeric values incremented by 10.
+
+In the example, modified_data will be a nested list with the same structure as data, but with all the numeric values increased by 10.
 
 ## Final Note
 
