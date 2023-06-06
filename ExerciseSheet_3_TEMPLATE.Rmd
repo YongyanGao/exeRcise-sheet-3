@@ -149,7 +149,9 @@ head(vorname_2022)
 e)  Combine both datasets into one using `bind_rows()`.
 
 ```{r}
+
 combined_data <- bind_rows(vorname_2021, vorname_2022)
+
 head(combined_data)
 ```
 
