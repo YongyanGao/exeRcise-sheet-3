@@ -96,6 +96,7 @@ b)  Load the data for both years into R. Check the type of the count
     solution and the repercussions.
     
 ```{r}
+
 vorname_2021 <- read.csv("C:/Users/Yongyan/Documents/R/data/FortR23/vornamen_2021.csv")
 vorname_2022 <- read.csv("C:/Users/Yongyan/Documents/R/data/FortR23/open_data_portal_2022.csv")
 
