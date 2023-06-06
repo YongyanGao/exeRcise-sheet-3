@@ -135,6 +135,7 @@ total_2022
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
 ```{r}
+
 library(dplyr)
 
 vorname_2021 <- mutate(vorname_2021, year = 2021)
@@ -142,6 +143,7 @@ vorname_2022 <- mutate(vorname_2022, year = 2022)
 
 head(vorname_2021)
 head(vorname_2022)
+
 ```
 
 e)  Combine both datasets into one using `bind_rows()`.
