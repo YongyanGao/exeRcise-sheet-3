@@ -51,11 +51,11 @@ c)  For all of the following tasks in this exercise sheet we ask you to
 d)  Name 2 strengths and 2 weaknesses of git. (Don't forget to create a
     commit after this answer, see *1c*)  
     
-Strengths: 1. Flexibility: offline work, faster operations, and the ability to collaborate with others without a central server. 
-           2. Branching and Merging: Creating branches allows users to work on multiple features or bug fixes simultaneously without interfering with each other.  
+Strengths: 1. Flexibility: offline work, faster operations, and the ability to         collaborate with others without a central server. 
+           2. Branching and Merging: Creating branches allows users to work on multiple               features or bug fixes simultaneously without interfering with each other.  
 
-Weaknesses: 1. Hard for Beginners: Understanding the Git workflow, branching strategies, and resolving conflicts may require time and effort to master. 
-            2. Command Line Complexity:  Executing complex Git operations solely may require memorizing specific commands and their options.
+Weaknesses: 1. Hard for Beginners: Understanding the Git workflow, branching strategies,                and resolving conflicts may require time and effort to master. 
+            2. Command Line Complexity:  Executing complex Git operations solely may                   require memorizing specific commands and their options.
 
 
 
