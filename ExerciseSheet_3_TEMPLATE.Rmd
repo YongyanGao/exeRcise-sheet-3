@@ -161,6 +161,7 @@ f)  Combine the counts for same names to determine the most popular
     formatted table for both years. Include a table caption.
     
 ```{r}
+
 popular_names <- combined_data %>%
   group_by(ï..Vorname) %>%
   summarize(Total_Count = sum(Anzahl))
@@ -171,6 +172,7 @@ top_10_names <- popular_names %>%
 
 caption <- "Top 10 Popular Names in Munich (2021-2022)"
 kable(top_10_names, caption = caption, align = "c", format = "markdown")
+
 ```
 
 ## Exercise 4: Chat GPT + apply (3 points)
